@@ -1,0 +1,18 @@
+diff --git a/play-json-2/src/main/scala/foo/Demo.scala b/play-json-2/src/main/scala/foo/Demo.scala
+index ecd5bdb..41fe0db 100644
+--- a/play-json-2/src/main/scala/foo/Demo.scala
++++ b/play-json-2/src/main/scala/foo/Demo.scala
+@@ -36,6 +36,7 @@ object DemoMain1 {
+   }
+ }
+ 
++/*
+ object DemoMain2 {
+   import Demo2._
+ 
+@@ -44,3 +45,4 @@ object DemoMain2 {
+     println(b2)
+   }
+ }
++*/
+\ No newline at end of file

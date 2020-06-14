@@ -1,32 +1,46 @@
 package foo
 
 import play.api.libs.json.Json
+import julienrf.json.derived
 
-object Demo {
+object Demo1 {
+  sealed trait Foo1
+  case class Bar1(s: String, i: Int) extends Foo1
+  case class Baz1(msg: String) extends Foo1
 
-  import julienrf.json.derived
-
-  sealed trait Foo
-  case class Bar(s: String, i: Int) extends Foo
-  case class Baz(msg: String) extends Foo
-
-  object Bar {
-    implicit val barFormat = Json.format[Bar]
+  object Bar1 {
+    implicit val barFormat = Json.format[Bar1]
   }
 
-  object Baz {
-    implicit val bazFormat = derived.oformat[Baz]()
+  object Baz1 {
+    implicit val bazFormat = derived.oformat[Baz1]()
   }
 
-  implicit val format = derived.oformat[Foo]()
+  implicit val format1 = derived.oformat[Foo1]()
 }
 
-object DemoMain {
+object Demo2 {
+  sealed trait Foo2
+  case class Bar2(s: String, i: Int) extends Foo2
+  case class Baz2(msg: String) extends Foo2
 
-  import Demo._
+  implicit val format2 = derived.oformat[Foo2]()
+}
+
+object DemoMain1 {
+  import Demo1._
 
   def main(args: Array[String]): Unit = {
-    val x = Json.toJson(Bar("hello", 55))
-    println(x)
+    val b1 = Json.toJson(Bar1("hello", 55))
+    println(b1)
+  }
+}
+
+object DemoMain2 {
+  import Demo2._
+
+  def main(args: Array[String]): Unit = {
+    val b2 = Json.toJson(Bar2("hello", 55))
+    println(b2)
   }
 }
