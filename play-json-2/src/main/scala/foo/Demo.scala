@@ -40,7 +40,7 @@ object DemoMain2 {
   import Demo2._
 
   def main(args: Array[String]): Unit = {
-    val b2 = Json.toJson(Bar2("hello", 55))
+    val b2 = Json.toJson(Bar2("hello", 55) : Foo2)
     println(b2)
   }
 }
