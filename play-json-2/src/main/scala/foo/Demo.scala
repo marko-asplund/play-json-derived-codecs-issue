@@ -31,7 +31,7 @@ object DemoMain1 {
   import Demo1._
 
   def main(args: Array[String]): Unit = {
-    val b1 = Json.toJson(Bar1("hello", 55))
+    val b1 = Json.toJson[Foo1](Bar1("hello", 55))
     println(b1)
   }
 }
@@ -40,7 +40,7 @@ object DemoMain2 {
   import Demo2._
 
   def main(args: Array[String]): Unit = {
-    val b2 = Json.toJson(Bar2("hello", 55))
+    val b2 = Json.toJson[Foo2](Bar2("hello", 55))
     println(b2)
   }
 }
